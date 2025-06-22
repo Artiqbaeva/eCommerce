@@ -30,34 +30,33 @@ const Home = () => {
           className="w-full h-full object-cover"
         />
            <div className="
-                  absolute top-1/2
-                  left-1/2 sm:left-[40%]
-                  -translate-x-1/2 sm:-translate-x-[40%]
-                  -translate-y-1/2 sm:-translate-y-[40%]
-                  flex flex-col items-center justify-center 
-                  sm:py-3
-                 bg-white/80 p-4 md:p-8
-                 rounded-md shadow-lg
-                 w-[90%] md:w-[643px]
-                 h-auto md:h-[350px]
-                 text-center md:text-left
-                ">
-                <p className="text-sm tracking-wider text-gray-500 mb-2 uppercase">
-    New Arrival
-                </p>
-                <h1 className="text-2xl md:text-4xl font-bold text-yellow-600 mb-4 leading-tight">
-                  Discover Our <br className="hidden md:block" /> New Collection
-                </h1>
-                <p className="text-gray-600 mb-6 text-sm md:text-base">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
-                </p>
-                <button
-                  onClick={() => navigate("/shop")}
-                  className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded font-semibold text-sm md:text-base"
-                >
-                  BUY NOW
-                </button>
-              </div>
+            absolute top-1/2
+            left-1/2 sm:left-[60%]
+            md:-translate-x-[50%]
+            -translate-x-1/2 
+            -translate-y-1/2 
+            bg-white/80 p-4 md:p-8
+            rounded-md shadow-lg
+            w-[90%] md:w-[643px]
+            h-auto md:h-[350px]
+            text-center md:text-left
+           ">
+            <p className="text-sm tracking-wider text-gray-500 mb-2 uppercase">
+              New Arrival
+            </p>
+            <h1 className="text-2xl md:text-4xl font-bold text-yellow-600 mb-4 leading-tight">
+              Discover Our <br className="hidden md:block" /> New Collection
+            </h1>
+            <p className="text-gray-600 mb-6 text-sm md:text-base">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+            </p>
+            <button
+              onClick={() => navigate("/shop")}
+              className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded font-semibold text-sm md:text-base"
+            >
+              BUY NOW
+            </button>
+          </div>
 
       </section>
 
@@ -120,10 +119,10 @@ const Home = () => {
       {/* Inspirations + Funiro banners - Desktop only */}
       <section className="container mx-auto mt-8 hidden md:block">
         <div className="flex justify-center">
-          <img src={inspirations} alt="Inspirations" className="w-full max-w-5xl mx-auto" />
+          <img src={inspirations} alt="Inspirations" className="w-full mx-auto" />
         </div>
         <div className="mt-8 flex justify-center">
-          <img src={funiro} alt="Funiro" className="w-full max-w-5xl mx-auto" />
+          <img src={funiro} alt="Funiro" className="w-full mx-auto" />
         </div>
       </section>
     </>

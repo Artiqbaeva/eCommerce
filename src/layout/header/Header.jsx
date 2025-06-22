@@ -57,21 +57,9 @@ const Header = () => {
             <NavLink to={"/shop"} onClick={() => setIsMenuOpen(false)}>Shop</NavLink>
             <NavLink to={"/about"} onClick={() => setIsMenuOpen(false)}>About</NavLink>
             <NavLink to={"/contact"} onClick={() => setIsMenuOpen(false)}>Contact</NavLink>
-            <div className="flex gap-4 mt-4 text-xl">
-              <NavLink to={"/search"}><i className="fa-solid fa-magnifying-glass"></i></NavLink>
-              <NavLink to={"/cart"} className="relative">
-                <i className="fa-solid fa-cart-shopping"></i>
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">0</span>
-              </NavLink>
-              <NavLink to={"/wishlist"} className="relative">
-                <i className="fa-regular fa-heart"></i>
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">0</span>
-              </NavLink>
-              <NavLink to={"/login"}><i onClick={ ()=> LoginModal} className="fa-regular fa-user"></i></NavLink>
-            </div>
           </nav>
         </div>
-      )}
+      )}    
     </header>
   );
 };
