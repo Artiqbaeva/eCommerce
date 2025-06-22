@@ -1,58 +1,133 @@
 import React from 'react'
 import hero from '@/assets/hero-img.svg'
-
+import { useProduct } from "@/api/hooks/useProduct";
 import dining from '@/assets/dining.svg'
 import living from '@/assets/living.svg'
-import bedroom from '@/assets/bedroom.svg'  
+import bedroom from '@/assets/bedroom.svg'
+import inspirations from '@/assets/inspirations.svg'
+import funiro from '@/assets/funiro.svg'
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { Card, Row, Col, Rate } from "antd";
+
+const { Meta } = Card;
+
 const Home = () => {
+  const navigate = useNavigate();
+  const { getProduct } = useProduct();
+
+  const [params] = useSearchParams();
+  const page = params.get("page") || 1;
+  const pageSize = params.get("pageSize") || 16;
+  const { data } = getProduct({ limit: pageSize, skip: pageSize * (page - 1) });
+
   return (
     <>
-    {/* Hero Section */}
-    <section className="relative w-full h-[80vh]">
-      {/* Background Image */}
-      <img
-        src={hero}
-        alt="Hero Background"
-        className="w-full h-full object-cover"
-      />
+      {/* Hero Section */}
+      <section className="relative w-full h-[80vh]">
+        <img
+          src={hero}
+          alt="Hero Background"
+          className="w-full h-full object-cover"
+        />
+           <div className="
+                  absolute top-1/2
+                  left-1/2 sm:left-[40%]
+                  -translate-x-1/2 sm:-translate-x-[40%]
+                  -translate-y-1/2 sm:-translate-y-[40%]
+                  flex flex-col items-center justify-center 
+                  sm:py-3
+                 bg-white/80 p-4 md:p-8
+                 rounded-md shadow-lg
+                 w-[90%] md:w-[643px]
+                 h-auto md:h-[350px]
+                 text-center md:text-left
+                ">
+                <p className="text-sm tracking-wider text-gray-500 mb-2 uppercase">
+    New Arrival
+                </p>
+                <h1 className="text-2xl md:text-4xl font-bold text-yellow-600 mb-4 leading-tight">
+                  Discover Our <br className="hidden md:block" /> New Collection
+                </h1>
+                <p className="text-gray-600 mb-6 text-sm md:text-base">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+                </p>
+                <button
+                  onClick={() => navigate("/shop")}
+                  className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded font-semibold text-sm md:text-base"
+                >
+                  BUY NOW
+                </button>
+              </div>
 
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 " />
+      </section>
 
-      {/* Text Block */}
-      <div className="absolute right-50 top-1/2 -translate-y-1/2 bg-white opacity-70 p-8 rounded-md shadow-lg max-[443px]">
-        <p className="text-sm tracking-wider text-gray-500 mb-2 uppercase">New Arrival</p>
-        <h1 className="text-4xl font-bold text-yellow-600 mb-4 leading-tight">
-          Discover Our <br /> New Collection
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+      {/* Browse The Range */}
+      <section className="container mx-auto py-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Browse The Range</h2>
+        <p className="text-center text-gray-600 mb-8 text-sm md:text-base">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
-        <button className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded font-semibold">
-          BUY NOW
-        </button>
-      </div>
-    </section>
-    {/* Browse The Range */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {[
+            { img: dining, title: 'Dining' },
+            { img: living, title: 'Living' },
+            { img: bedroom, title: 'Bedroom' }
+          ].map((item, idx) => (
+            <div key={idx} className="flex flex-col justify-center items-center">
+              <img src={item.img} alt={item.title} className="w-[70%] max-w-[180px]" />
+              <span className="mt-6 font-display font-semibold text-xl md:text-2xl">{item.title}</span>
+            </div>
+          ))}
+        </div>
+      </section>
 
-    <section className="container mx-auto py-16 px-4"></section>
-      <h2 className="text-3xl font-bold text-center mb-2">Browse The Range</h2>
-      <p className="text-center text-gray-600 mb-12">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-         <div>
-          <img src={dining} alt="" />
-         </div>
-         <div>
-          <img src={living} alt="" />
-         </div>
-         <div>
-          <img src={bedroom} alt="" />
-         </div>
-      </div>
+      {/* Our Products - Ant Design Cards */}
+      <section className="container mx-auto px-4 pb-16">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">Our Products</h2>
+        <p className="text-center text-gray-500 mb-8 text-sm md:text-base">Explore our latest collection</p>
+        <Row gutter={[16, 24]}>
+          {data?.data?.products?.map((product) => (
+            <Col key={product.id} xs={24} sm={12} md={8} lg={6}>
+              <Card
+                hoverable
+                cover={
+                  <img
+                    alt={product.title}
+                    src={product.thumbnail}
+                    className="h-56 object-contain"
+                    onClick={() => navigate(`/product/${product.id}`)}
+                  />
+                }
+              >
+                <Meta title={product.title} description={`$${product.price}`} />
+                <div className="mt-2">
+                  <Rate disabled defaultValue={Math.round(product.rating)} />
+                </div>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => navigate("/shop")}
+            className="border border-yellow-600 hover:bg-yellow-700 hover:text-white text-yellow-600 px-6 py-3 rounded font-semibold transition duration-300 text-sm md:text-base"
+          >
+            Show More
+          </button>
+        </div>
+      </section>
+
+      {/* Inspirations + Funiro banners - Desktop only */}
+      <section className="container mx-auto mt-8 hidden md:block">
+        <div className="flex justify-center">
+          <img src={inspirations} alt="Inspirations" className="w-full max-w-5xl mx-auto" />
+        </div>
+        <div className="mt-8 flex justify-center">
+          <img src={funiro} alt="Funiro" className="w-full max-w-5xl mx-auto" />
+        </div>
+      </section>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

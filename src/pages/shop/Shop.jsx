@@ -1,6 +1,5 @@
 import { useProduct } from "@/api/hooks/useProduct";
 import { Pagination } from "antd";
-import React, { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Shop = () => {
@@ -27,7 +26,7 @@ const Shop = () => {
   };
 
   return (
-    <div>
+    <div className="container mx-auto px-4 py-8">
       <h2>Shop</h2>
       {/* <Products data={data?.data?.products}/> */}
       <div className="grid grid-cols-4">

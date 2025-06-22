@@ -1,6 +1,7 @@
 import { Suspense } from '@/utils'
 import React, { lazy } from 'react'
 import { useRoutes } from 'react-router-dom'
+import LoginModal from './login/LoginModal'
 
 
 
@@ -22,6 +23,11 @@ const MainRouters = () => {
           {path: "/product/:id", element:<Suspense><DeatilShop/></Suspense> },
           {path: "/about", element:<Suspense><About/></Suspense> },
           {path: "/contact", element:<Suspense><Contact/></Suspense> },
+          {path: "/search", element:<Suspense><Home/></Suspense> },
+          {path: "/cart", element:<Suspense><Home/></Suspense> },
+          {path: "/wishlist", element:<Suspense><Home/></Suspense> },
+          {path: "/login", element:<Suspense><LoginModal/></Suspense> },
+          {path: "*", element:<Suspense><Home/></Suspense> },
         ]},
       ])
     }
