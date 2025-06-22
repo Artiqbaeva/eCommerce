@@ -4,7 +4,7 @@ import { useProduct } from "@/api/hooks/useProduct";
 import dining from '@/assets/dining.svg'
 import living from '@/assets/living.svg'
 import bedroom from '@/assets/bedroom.svg'
-import inspirations from '@/assets/inspirations.svg'
+import inspirations from '@/assets/Inspirations.svg'
 import funiro from '@/assets/funiro.svg'
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Card, Row, Col, Rate } from "antd";
