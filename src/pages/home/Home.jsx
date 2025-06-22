@@ -8,7 +8,7 @@ import inspirations from '@/assets/Inspirations.svg'
 import funiro from '@/assets/funiro.svg'
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Card, Row, Col, Rate } from "antd";
-
+import { ShoppingCartOutlined, ShareAltOutlined, HeartOutlined } from '@ant-design/icons';
 const { Meta } = Card;
 
 const Home = () => {
@@ -85,27 +85,48 @@ const Home = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">Our Products</h2>
         <p className="text-center text-gray-500 mb-8 text-sm md:text-base">Explore our latest collection</p>
         <Row gutter={[16, 24]}>
-          {data?.data?.products?.map((product) => (
-            <Col key={product.id} xs={24} sm={12} md={8} lg={6}>
-              <Card
-                hoverable
-                cover={
-                  <img
-                    alt={product.title}
-                    src={product.thumbnail}
-                    className="h-56 object-contain"
-                    onClick={() => navigate(`/product/${product.id}`)}
-                  />
-                }
-              >
-                <Meta title={product.title} description={`$${product.price}`} />
-                <div className="mt-2">
-                  <Rate disabled defaultValue={Math.round(product.rating)} />
-                </div>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+  {data?.data?.products?.map((product) => (
+    <Col key={product.id} xs={24} sm={12} md={8} lg={6}>
+      <Card
+        hoverable
+        className="relative group overflow-hidden shadow-md rounded-lg"
+        cover={
+          <div className="relative">
+            <img
+              alt={product.title}
+              src={product.thumbnail}
+              className="h-56 w-full object-contain cursor-pointer"
+              onClick={() => navigate(`/product/${product.id}`)}
+            />
+            {/* Hover buttons */}
+            <div className="absolute inset-0 bg-black/20 flex flex-col items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <button className="flex items-center gap-2 bg-white text-yellow-600 px-4 py-2 rounded-full shadow hover:bg-yellow-100  text-sm font-medium">
+                <ShoppingCartOutlined />
+                Add to Cart
+              </button>
+              <button className="flex items-center gap-2 bg-white text-yellow-600 px-4 py-2 rounded-full shadow hover:bg-yellow-100  text-sm font-medium">
+                <ShareAltOutlined />
+                Share
+              </button>
+              <button className="flex items-center gap-2 bg-white text-yellow-600 px-4 py-2 rounded-full shadow hover:bg-yellow-100  text-sm font-medium">
+                <HeartOutlined />
+                Like
+              </button>
+            </div>
+          </div>
+        }
+      >
+        <Meta
+          title={<span className="font-semibold">{product.title}</span>}
+          description={<span className="text-yellow-600 font-bold">${product.price}</span>}
+        />
+        <div className="mt-2">
+          <Rate disabled defaultValue={Math.round(product.rating)} />
+        </div>
+      </Card>
+    </Col>
+  ))}
+</Row>
         <div className="flex justify-center mt-8">
           <button
             onClick={() => navigate("/shop")}

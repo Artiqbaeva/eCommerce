@@ -8,6 +8,10 @@ const App = () => {
     <div>
       <NetworkStatus/>
       <MainRouters/>
+
+
+
+      
     </div>
   )
 }

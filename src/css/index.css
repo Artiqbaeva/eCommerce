@@ -10,3 +10,51 @@
   @theme {
     --font-display: "Poppins", "sans-serif"; 
   }
+
+
+
+/* Custom Pagination Styles */
+.custom-pagination .ant-pagination-item {
+  background-color: #fdf6ec;
+  border: none;
+  border-radius: 8px;
+  color: #000;
+  font-weight: 500;
+}
+
+.custom-pagination .ant-pagination-item a {
+  color: #000;
+}
+
+.custom-pagination .ant-pagination-item-active {
+  background-color: #B88E2F !important;
+  color: white !important;
+  border: none;
+}
+
+.custom-pagination .ant-pagination-item-active a {
+  color: white !important;
+}
+
+/* Prev/Next buttons */
+.custom-pagination .ant-pagination-prev,
+.custom-pagination .ant-pagination-next {
+  background-color: #fdf6ec;
+  border-radius: 8px;
+  border: none;
+}
+
+.custom-pagination .ant-pagination-prev a,
+.custom-pagination .ant-pagination-next a {
+  color: #000;
+}
+
+.custom-pagination .ant-pagination-prev:hover,
+.custom-pagination .ant-pagination-next:hover,
+.custom-pagination .ant-pagination-item:hover {
+  background-color: #e6d3a0;
+  color: #B88E2F;
+}
+
+
+
