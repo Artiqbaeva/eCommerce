@@ -2,7 +2,7 @@ import React from 'react'
 
 const DeatilShop = () => {
   return (
-    <div>DeatilShop</div>
+    <div className='container mx-auto '>DeatilShop</div>
   )
 }
 

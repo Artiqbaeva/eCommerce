@@ -20,6 +20,8 @@ const MainRouters = () => {
           {path: "/", element:<Suspense><Home/></Suspense>},
           {path: "/shop", element:<Suspense><Shop/></Suspense> },
           {path: "/product/:id", element:<Suspense><DeatilShop/></Suspense> },
+          {path: "/shop/:category", element:<Suspense><Shop/></Suspense> },
+          {path: "/detail/:id", element:<Suspense><DeatilShop/></Suspense> },
           {path: "/about", element:<Suspense><About/></Suspense> },
           {path: "/contact", element:<Suspense><Contact/></Suspense> },
           {path: "*", element:<Suspense><div>NotFound...</div></Suspense> },

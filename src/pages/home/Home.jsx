@@ -8,7 +8,8 @@ import inspirations from '@/assets/Inspirations.svg'
 import funiro from '@/assets/funiro.svg'
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Card, Row, Col, Rate } from "antd";
-import { ShoppingCartOutlined, ShareAltOutlined, HeartOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined, ShareAltOutlined, HeartOutlined, EyeFilled } from '@ant-design/icons';
+import DeatilShop from '../shop/DeatilShop';
 const { Meta } = Card;
 
 const Home = () => {
@@ -104,10 +105,13 @@ const Home = () => {
                 <ShoppingCartOutlined />
                 Add to Cart
               </button>
-              <button className="flex items-center gap-2 bg-white text-yellow-600 px-4 py-2 rounded-full shadow hover:bg-yellow-100  text-sm font-medium">
-                <ShareAltOutlined />
-                Share
-              </button>
+              <button
+             onClick={() => navigate(`/detail/${product.id}`)} 
+             className="flex items-center gap-2 bg-white text-yellow-600 px-4 py-2 rounded-full shadow hover:bg-yellow-100 text-sm font-semibold"
+             >
+          <EyeFilled />
+           See
+         </button>
               <button className="flex items-center gap-2 bg-white text-yellow-600 px-4 py-2 rounded-full shadow hover:bg-yellow-100  text-sm font-medium">
                 <HeartOutlined />
                 Like
@@ -138,7 +142,7 @@ const Home = () => {
       </section>
 
       {/* Inspirations + Funiro banners - Desktop only */}
-      <section className="container mx-auto mt-8 hidden md:block">
+      <section className=" mt-8 hidden md:block">
         <div className="flex justify-center">
           <img src={inspirations} alt="Inspirations" className="w-full mx-auto" />
         </div>

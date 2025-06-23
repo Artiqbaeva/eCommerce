@@ -3,9 +3,9 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { Card, Row, Col, Rate, Pagination } from "antd";
 import shop from "@/assets/shop.svg";
 const { Meta } = Card;
-import { FunnelIcon, Squares2X2Icon, Bars3Icon } from '@heroicons/react/24/outline';
+import { FunnelIcon, Squares2X2Icon, Bars3Icon, EyeDropperIcon } from '@heroicons/react/24/outline';
 
-import { ShoppingCartOutlined, ShareAltOutlined, HeartOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined, ShareAltOutlined, HeartOutlined, EyeFilled } from '@ant-design/icons';
 
 const Shop = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const Shop = () => {
   };
 
   return (
-    <section className="container mx-auto px-4 ">
+    <section className="">
       <div className="">
         <img className="w-full" src={shop} alt="" />
       </div>
@@ -61,6 +61,7 @@ const Shop = () => {
     </select>
   </div>
 </div>
+<div className="container mx-auto" >
 <Row gutter={[16, 24]}>
   {data?.data?.products?.map((product) => (
     <Col key={product.id} xs={24} sm={12} md={8} lg={6}>
@@ -81,10 +82,13 @@ const Shop = () => {
                 <ShoppingCartOutlined />
                 Add to Cart
               </button>
-              <button className="flex items-center gap-2 bg-white text-yellow-600 px-4 py-2 rounded-full shadow hover:bg-yellow-100 text-sm font-semibold">
-                <ShareAltOutlined />
-                Share
-              </button>
+              <button
+                          onClick={() => navigate(`/detail/${product.id}`)} 
+                          className="flex items-center gap-2 bg-white text-yellow-600 px-4 py-2 rounded-full shadow hover:bg-yellow-100 text-sm font-semibold"
+                          >
+                       <EyeFilled />
+                        See
+                      </button>
               <button className="flex items-center gap-2 bg-white text-yellow-600 px-4 py-2 rounded-full shadow hover:bg-yellow-100 text-sm font-semibold">
                 <HeartOutlined />
                 Like
@@ -113,7 +117,7 @@ const Shop = () => {
     showSizeChanger={false}
   />
 </div>
-
+</div>
     </section>
   );
 };
