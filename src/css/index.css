@@ -10,10 +10,13 @@
   @theme {
     --font-display: "Poppins", "sans-serif"; 
   }
+  .container{
+    max-width: 1300px;
+    width: 100%;
+}
 
 
 
-/* Custom Pagination Styles */
 .custom-pagination .ant-pagination-item {
   background-color: #fdf6ec;
   border: none;
@@ -36,7 +39,6 @@
   color: white !important;
 }
 
-/* Prev/Next buttons */
 .custom-pagination .ant-pagination-prev,
 .custom-pagination .ant-pagination-next {
   background-color: #fdf6ec;
@@ -56,5 +58,12 @@
   color: #B88E2F;
 }
 
+.ant-btn-primary {
+  background-color: #facc15 !important;
+  border-color: #facc15 !important;
+}
 
-
+.ant-btn-primary:hover {
+  background-color: #eab308 !important;
+  border-color: #eab308 !important;
+}
