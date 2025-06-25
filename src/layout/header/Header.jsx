@@ -55,6 +55,20 @@ const Header = () => {
             <NavLink to={"/about"} onClick={() => setIsMenuOpen(false)}>About</NavLink>
             <NavLink to={"/contact"} onClick={() => setIsMenuOpen(false)}>Contact</NavLink>
           </nav>
+          <div className="flex items-center gap-4 mt-2 text-xl">
+            <button onClick={() => setIsSearchOpen(true)}>
+            <i className="fa-solid fa-magnifying-glass hover:text-yellow-600"></i>
+          </button>
+          <NavLink to={"/cart"} className="relative">
+            <i className="fa-solid fa-cart-shopping hover:text-yellow-600"></i>
+          </NavLink>
+          <NavLink to={"/wishlist"} className="relative">
+            <i className="fa-regular fa-heart hover:text-yellow-600"></i>
+          </NavLink>
+          <button onClick={() => setIsLoginOpen(true)}>
+            <i className="fa-regular fa-user hover:text-yellow-600"></i>
+          </button>
+        </div>
         </div>
       )}
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />

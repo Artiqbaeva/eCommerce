@@ -20,7 +20,6 @@ const ProductItem = ({ id, title, brand, price, thumbnail, rating }) => {
   };
   const navigate = useNavigate();
   return (
-  
     <div className="bg-white rounded-xl shadow hover:shadow-md transition group overflow-hidden border border-gray-200">
       <div className="relative h-[280px] bg-gray-50">
         <img
@@ -37,15 +36,15 @@ const ProductItem = ({ id, title, brand, price, thumbnail, rating }) => {
   }
   className="absolute top-4 right-4 bg-white rounded-full p-2 shadow hover:bg-yellow-100 transition"
 >
-  {isLiked ? (
+     {isLiked ? (
     <HeartFilled style={{ color: "#ef4444", fontSize: "18px" }} />
-  ) : (
+       ) : (
     <HeartOutlined style={{ fontSize: "18px" }} />
-  )}
-</button>
+         )}
+      </button>
       </div>
 
-      {/* Info Section */}
+    
       <div className="p-4 space-y-1">
         <h3 className="text-base font-semibold text-gray-800 truncate">{title}</h3>
         <p className="text-sm text-gray-500">{brand}</p>
