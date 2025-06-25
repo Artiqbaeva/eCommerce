@@ -16,7 +16,7 @@ const ProductItem = ({ id, title, brand, price, thumbnail, rating }) => {
   const handleAddToCart = () => {
     dispatch(addToCart({ id, title, brand, price, thumbnail,rating }));
     setAdded(true);
-    setTimeout(() => setAdded(false), 2000); 
+  
   };
   const navigate = useNavigate();
   return (
