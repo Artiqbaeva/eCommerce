@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Input, Spin } from "antd";
 import { useProduct } from "@/api/hooks/useProduct";
-import useDebounce from "@/hooks/UseDebounce";
+import useDebounce from "@/hooks/useDebounce";
 
 const SearchModal = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState("");
