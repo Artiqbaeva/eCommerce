@@ -4,6 +4,7 @@ import { useRoutes } from 'react-router-dom'
 import Wishlist from './wishlist/Wishlist'
 import Cart from './cart/Cart'
 import LoginModal from './login/LoginModal'
+import NotFound from './notFound/NotFound'
 
 
 
@@ -30,7 +31,7 @@ const MainRouters = () => {
           {path: "/about", element:<Suspense><About/></Suspense> },
           {path: "/contact", element:<Suspense><Contact/></Suspense> },
           {path: "/checkout", element:<Suspense><Checkout/></Suspense> },
-          {path: "*", element:<Suspense><div>NotFound...</div></Suspense> },
+          {path: "*", element:<Suspense><NotFound/></Suspense> },
         ]},
       ])
     } 

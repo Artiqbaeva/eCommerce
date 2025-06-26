@@ -56,7 +56,7 @@ const ProductItem = ({ id, title, brand, price, thumbnail, rating }) => {
         <button
           onClick={handleAddToCart}
           disabled={added}
-          className={`mt-3 w-full flex items-center justify-center gap-2 ${
+          className={`mt-3 w-full flex items-center  justify-center gap-2 ${
             added ? "bg-yellow-600" : "bg-yellow-500 hover:bg-yellow-600"
           } text-white text-sm font-semibold py-2 rounded-full transition cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed`}
         >
