@@ -62,7 +62,7 @@ const Checkout = () => {
       <div className="w-full">
         <img
           onClick={() => navigate("/")}
-          className="w-full h-full cursor-pointer"
+          className="w-full  object-cover shadow rounded-b-xl max-[700px]:h-74 max-[700px]:object-cover max-[700px]:rounded-b-none"
           src={checkout}
           alt="checkout"
         />
@@ -70,7 +70,6 @@ const Checkout = () => {
 
       <div className="bg-white px-6 md:px-16 lg:px-32 py-12 font-sans">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Billing Details */}
           <div>
             <h2 className="text-3xl font-bold mb-8">Billing details</h2>
             <Form
@@ -196,7 +195,7 @@ const Checkout = () => {
             </Form>
           </div>
 
-          {/* Order Summary */}
+        
           <div>
             <h2 className="text-3xl font-bold mb-8">Product</h2>
             <div className="text-sm text-gray-800 space-y-3 bg-gray-50 p-6 rounded-xl shadow-sm">
