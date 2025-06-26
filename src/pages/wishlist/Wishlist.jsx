@@ -13,7 +13,7 @@ const Wishlist = () => {
 
       {
         wishlist.length ?
-        <Products data={wishlist}/>
+        <Products  data={wishlist}/>
         :
         <div className='flex flex-col items-center justify-center mt-20 space-y-4'>
           <h2 className='text-2xl font-bold text-gray-600'>Your wishlist is empty</h2>

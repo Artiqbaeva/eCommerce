@@ -41,7 +41,7 @@ const Header = () => {
         </nav>
         <div className="hidden lg:flex items-center gap-4 text-xl cursor-pointer">
           <button onClick={() => setIsSearchOpen(true)}>
-            <i className="fa-solid fa-magnifying-glass hover:text-yellow-600"></i>
+            <i className="fa-solid fa-magnifying-glass cursor-pointer hover:text-yellow-600"></i>
           </button>
           <NavLink to={'/cart'}>
             <i className="fa-solid fa-cart-shopping hover:text-yellow-600"></i>
@@ -68,7 +68,7 @@ const Header = () => {
             <NavLink to={'/about'} onClick={() => setIsMenuOpen(false)}>About</NavLink>
             <NavLink to={'/contact'} onClick={() => setIsMenuOpen(false)}>Contact</NavLink>
           </nav>
-          <div className="flex items-center gap-4 mt-2 text-xl">
+          <div className="flex items-center gap-4 mt-2 text-xl cursor-pointer">
             <button onClick={() => setIsSearchOpen(true)}>
               <i className="fa-solid fa-magnifying-glass hover:text-yellow-600"></i>
             </button>
