@@ -8,6 +8,7 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    // ➕ Mahsulot qo‘shish
     addToCart: (state, action) => {
       const index = state.value.findIndex(
         (item) => item.id === action.payload.id
@@ -17,6 +18,7 @@ export const cartSlice = createSlice({
       }
       localStorage.setItem("cart", JSON.stringify(state.value));
     },
+   
     incrementCart: (state, action) => {
       state.value = state.value.map((item) =>
         item.id === action.payload.id
@@ -25,6 +27,7 @@ export const cartSlice = createSlice({
       );
       localStorage.setItem("cart", JSON.stringify(state.value));
     },
+   
     decrementCart: (state, action) => {
       state.value = state.value.map((item) =>
         item.id === action.payload.id
@@ -33,11 +36,16 @@ export const cartSlice = createSlice({
       );
       localStorage.setItem("cart", JSON.stringify(state.value));
     },
+  
     removeCart: (state, action) => {
       state.value = state.value.filter((item) => item.id !== action.payload.id);
       localStorage.setItem("cart", JSON.stringify(state.value));
     },
-    clearCart: (state, action) => {},
+   
+    clearCart: (state) => {
+      state.value = [];
+      localStorage.setItem("cart", JSON.stringify(state.value));
+    },
   },
 });
 

@@ -34,7 +34,7 @@ const ProductItem = ({ id, title, brand, price, thumbnail, rating }) => {
   onClick={() =>
     dispatch(toggleWishlist({ id, title, brand, price, thumbnail, rating }))
   }
-  className="absolute top-4 right-4 bg-white rounded-full p-2 shadow hover:bg-yellow-100 transition"
+  className="absolute top-4 right-4 bg-white rounded-full   h-[30px] w-[30px] shadow hover:bg-yellow-100 transition cursor-pointer "
 >
      {isLiked ? (
     <HeartFilled style={{ color: "#ef4444", fontSize: "18px" }} />
@@ -57,8 +57,8 @@ const ProductItem = ({ id, title, brand, price, thumbnail, rating }) => {
           onClick={handleAddToCart}
           disabled={added}
           className={`mt-3 w-full flex items-center justify-center gap-2 ${
-            added ? "bg-yellow-700" : "bg-yellow-500 hover:bg-yellow-600"
-          } text-white text-sm font-semibold py-2 rounded-full transition`}
+            added ? "bg-yellow-600" : "bg-yellow-500 hover:bg-yellow-600"
+          } text-white text-sm font-semibold py-2 rounded-full transition cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed`}
         >
           {added ? <CheckOutlined /> : <ShoppingCartOutlined />}
           {added ? "Added" : "Add to Cart"}

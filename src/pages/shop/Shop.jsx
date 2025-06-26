@@ -31,9 +31,9 @@ const Shop = () => {
           src={shop}
           alt="Shop Background"
           className="w-full  object-cover shadow rounded-b-xl"
-          
         />
       </div>
+      
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Explore Our Products

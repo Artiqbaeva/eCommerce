@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useProduct } from "@/api/hooks/useProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "@/redux/features/cart";
@@ -24,7 +24,6 @@ const DetailProduct = () => {
   const handleAddToCart = () => {
     dispatch(addToCart(product));
     setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
   };
 
   const handleToggleWishlist = () => {
@@ -36,10 +35,9 @@ const DetailProduct = () => {
     return <DetailProductSkeleton />;
   }
   return (
-    
     <div className="container mx-auto px-4 py-10 mt-10">
-      <div className="grid md:grid-cols-2 gap-10 items-start">
-     
+      
+      <div className="grid md:grid-cols-2 gap-10 items-start mt-6">
         <div className="bg-gray-100 p-6 rounded-xl shadow-md">
           <img
             src={product.thumbnail}
@@ -52,11 +50,9 @@ const DetailProduct = () => {
           <p className="text-gray-600 text-sm">Brand: {product.brand}</p>
           <p className="text-yellow-600 text-xl font-bold">${product.price}</p>
           <Rate disabled defaultValue={Math.round(product.rating)} />
-
           <p className="text-gray-700 text-base mt-4 leading-relaxed">
             {product.description}
           </p>
-
           <div className="flex flex-wrap gap-4 mt-6">
             <button
               onClick={handleAddToCart}
@@ -68,7 +64,6 @@ const DetailProduct = () => {
               {added ? <CheckOutlined /> : <ShoppingCartOutlined />}
               {added ? "Added" : "Add to Cart"}
             </button>
-
             <button
               onClick={handleToggleWishlist}
               className="flex items-center gap-2 px-6 py-2 border border-yellow-600 text-yellow-600 rounded-full hover:bg-yellow-50 transition"
@@ -76,11 +71,17 @@ const DetailProduct = () => {
               {isLiked ? <HeartFilled className="text-red-500" /> : <HeartOutlined />}
               {isLiked ? "Liked" : "Like"}
             </button>
+           
+           <button  className={`flex items-center gap-2 px-6 py-2 rounded-full text-white font-semibold transition ${
+                added ? "bg-yellow-700" : "bg-yellow-500 hover:bg-yellow-600"
+              }`}>
+           <NavLink to={-1} >Go back</NavLink>
+           </button>
+
           </div>
         </div>
       </div>
     </div>
   );
 };
-
 export default DetailProduct;

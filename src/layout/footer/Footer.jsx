@@ -54,8 +54,8 @@ const Footer = () => {
     </div>
 
     <hr className="my-8 border-gray-200" />
-
-    {/* Copyright */}
+      
+   
     <div className="text-center text-sm text-gray-500">
       © 2023 Funiro. All rights reserved
     </div>

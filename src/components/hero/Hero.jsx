@@ -1,11 +1,12 @@
 import hero from "@/assets/hero-img.svg"
 import React from 'react'
-import { Navigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import dining from '@/assets/dining.svg'
 import living from '@/assets/living.svg'
 import bedroom from '@/assets/bedroom.svg'
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <>
      <section className="relative w-full h-[80vh]">
@@ -36,14 +37,13 @@ const Hero = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
         </p>
         <button
-          onClick={() => Navigate("/shop")}
-          className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded font-semibold text-sm md:text-base"
+          onClick={() => navigate("/shop")}
+          className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 cursor-pointer rounded font-semibold text-sm md:text-base"
         >
           BUY NOW
         </button>
       </div>
-
-  </section>
+         </section>
         <section className="container mx-auto py-12 px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Browse The Range</h2>
         <p className="text-center text-gray-600 mb-8 text-sm md:text-base">
@@ -62,10 +62,7 @@ const Hero = () => {
           ))}
         </div>
       </section>
-     
     </>
-   
-  
   )
 }
 

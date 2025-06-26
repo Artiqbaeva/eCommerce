@@ -13,6 +13,7 @@ const About = lazy(() => import("./About/About"))
 const Layout = lazy(()=> import("./layout/Layout"))
 const Home = lazy(()=> import("./home/Home"))
 const Shop = lazy(()=> import("./shop/Shop"))
+const Checkout = lazy(()=> import("./checkout/Checkout"))
 
 const MainRouters = () => {
   return (
@@ -28,6 +29,7 @@ const MainRouters = () => {
           {path: "/cart", element:<Suspense><Cart/></Suspense> },
           {path: "/about", element:<Suspense><About/></Suspense> },
           {path: "/contact", element:<Suspense><Contact/></Suspense> },
+          {path: "/checkout", element:<Suspense><Checkout/></Suspense> },
           {path: "*", element:<Suspense><div>NotFound...</div></Suspense> },
         ]},
       ])
