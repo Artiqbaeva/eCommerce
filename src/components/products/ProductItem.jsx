@@ -31,15 +31,14 @@ const ProductItem = ({ id, title, brand, price, thumbnail, rating }) => {
           style={{ height: "300px", cursor: "pointer" }}
         />
         <button
-  onClick={() =>
-    dispatch(toggleWishlist({ id, title, brand, price, thumbnail, rating }))
-  }
-  className="absolute top-4 right-4 bg-white rounded-full   h-[30px] w-[30px] shadow hover:bg-yellow-100 transition cursor-pointer "
->
-     {isLiked ? (
-    <HeartFilled style={{ color: "#ef4444", fontSize: "18px" }} />
-       ) : (
-    <HeartOutlined style={{ fontSize: "18px" }} />
+         onClick={() =>
+         dispatch(toggleWishlist({ id, title, brand, price, thumbnail, rating }))}
+        className="absolute top-4 right-4 bg-white rounded-full h-[27px] w-[30px] shadow hover:bg-yellow-100 transition cursor-pointer "
+        >
+         {isLiked ? (
+       <HeartFilled style={{ color: "#ef4444", fontSize: "18px" }} />
+         ) : (
+       <HeartOutlined style={{ fontSize: "18px" }} />
          )}
       </button>
       </div>
