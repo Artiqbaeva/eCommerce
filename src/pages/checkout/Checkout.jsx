@@ -6,6 +6,7 @@ import { PatternFormat } from "react-number-format";
 import axios from "axios";
 import { clearCart } from "@/redux/features/cart";
 import checkout from "@/assets/checkout.svg";
+import { useScrollToTop } from "@/hooks/useScrollTo";
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -14,6 +15,7 @@ const BOT_TOKEN = "8051245953:AAFVfneikTYpPEbmhihCCXdxjGYwBM2rBgc";
 const USER_ID = "6548150434";
 
 const Checkout = () => {
+  useScrollToTop()
   const cart = useSelector((state) => state.cart.value);
   const dispatch = useDispatch();
   const navigate = useNavigate();

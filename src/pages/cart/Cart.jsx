@@ -33,7 +33,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
+    <div className="min-h-screen container mx-auto bg-gray-50 p-4">
       <h2 className="text-xl sm:text-2xl font-bold text-center mb-6">Shopping Cart</h2>
 
       <div className="space-y-4">

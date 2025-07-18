@@ -3,12 +3,12 @@ import React, { lazy } from 'react'
 import { useRoutes } from 'react-router-dom'
 import Wishlist from './wishlist/Wishlist'
 import Cart from './cart/Cart'
-import LoginModal from './login/LoginModal'
+
 import NotFound from './notFound/NotFound'
 
 
 
-const DeatilShop = lazy(() => import("./shop/DeatilShop"))
+const DeatilShop = lazy(() => import("./shop/DeatilProduct"))
 const Contact = lazy(() => import("./Contact/Contact"))
 const About = lazy(() => import("./About/About"))
 const Layout = lazy(()=> import("./layout/Layout"))

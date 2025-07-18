@@ -3,7 +3,9 @@ import contact from "@/assets/contact.svg"
 import location from "@/assets/location.png"
 import phone from "@/assets/phone.png"
 import time from "@/assets/time.png"
+import { useScrollToTop } from '@/hooks/useScrollTo'
 const Contact = () => {
+  useScrollToTop()
   return (
     <div>
        <div>

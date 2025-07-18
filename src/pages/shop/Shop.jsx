@@ -4,8 +4,10 @@ import { Pagination } from "antd";
 import React from "react";
 import { NavLink, useSearchParams } from "react-router-dom";
 import shop from "@/assets/shop.svg";
+import { useScrollToTop } from "@/hooks/useScrollTo";
 
 const Shop = () => {
+  useScrollToTop()
   const { getProduct } = useProduct();
   const [params, setParams] = useSearchParams();
 
@@ -44,7 +46,7 @@ const Shop = () => {
           loading={isLoading}
           count={pageSize}
         />
-
+        
         <div className="flex justify-center mt-12">
           <Pagination
             current={page}

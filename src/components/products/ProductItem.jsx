@@ -7,6 +7,7 @@ import { Rate } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const ProductItem = ({ id, title, brand, price, thumbnail, rating }) => {
+  
   const dispatch = useDispatch();
   const wishlist = useSelector((state) => state.wishlist.value);
   const isLiked = wishlist.some((item) => item.id === id);

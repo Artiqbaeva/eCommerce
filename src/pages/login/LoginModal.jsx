@@ -1,8 +1,10 @@
 // components/LoginModal.jsx
 import React from "react";
 import { Modal, Form, Input, Button } from "antd";
+import { useScrollToTop } from "@/hooks/useScrollTo";
 
 const LoginModal = ({ isOpen, onClose }) => {
+  useScrollToTop()
   const [form] = Form.useForm();
 
   const handleLogin = (values) => {

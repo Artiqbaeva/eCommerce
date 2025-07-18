@@ -1,10 +1,12 @@
 import { useProduct } from '@/api/hooks/useProduct'
 import Hero from '@/components/hero/Hero'
 import Products from '@/components/products/Products'
+import { useScrollToTop } from '@/hooks/useScrollTo'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  useScrollToTop()
   const {getProduct} = useProduct()
   const {data, isLoading} = getProduct({limit: 8})
   const navigate = useNavigate();

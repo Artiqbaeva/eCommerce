@@ -19,11 +19,16 @@ const Header = () => {
   }, []);
 
   return (
-    <header
-    className={`w-full  border-gray-200 sticky top-0 bg-white z-50 shadow-md ${
-      isScrolled ? "shadow-sm py-[1px]" : "py-3"
+    <header  className={`w-full sticky top-0 z-50 bg-white transition-all duration-300 ${
+      isScrolled ? "shadow-sm py-2" : "shadow-none py-4"
     }`}
+    style={{
+      willChange: "transform",
+      WebkitBackfaceVisibility: "hidden",
+      WebkitTransform: "translateZ(0)",
+    }}
   >
+ 
       <div className="container mx-auto px-4 py-4 flex justify-between items-center font-display">
         <div className="flex items-center gap-2 cursor-pointer">
           <NavLink to={'/'}>
