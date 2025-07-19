@@ -49,7 +49,7 @@ const Hero = () => {
         <p className="text-center text-gray-600 mb-8 text-sm md:text-base">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {[
             { img: dining, title: 'Dining' },
             { img: living, title: 'Living' },
